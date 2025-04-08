@@ -25,25 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {boolean} isLoading - True to show loading, false to hide
      */
     function setLoadingState(isLoading) {
+        // Check if the chartLoading element exists before trying to use it
+        const chartLoading = document.getElementById('chartLoading'); // Re-get or ensure it's accessible here
+    
         if (isLoading) {
             // Show loading for predictions
             predictionCardEOD?.classList.add('loading');
             predictionCardNextOpen?.classList.add('loading');
-            // Reset prediction text while loading
             predictionValueEOD.textContent = '--';
             predictionValueNextOpen.textContent = '--';
-            // Show loading for chart
-            chartLoading?.style.display = 'block';
-             if(currentChartInstance) { // Hide old chart while loading new one
-                 chartCanvas.style.opacity = '0.3';
-             }
+    
+            // Show loading for chart (with check)
+            if (chartLoading) { // <-- ADD CHECK
+                chartLoading.style.display = 'block';
+            }
+            if (currentChartInstance) {
+                chartCanvas.style.opacity = '0.3'; // Use the corrected line here
+            }
         } else {
             // Hide loading for predictions
             predictionCardEOD?.classList.remove('loading');
             predictionCardNextOpen?.classList.remove('loading');
-            // Hide loading for chart
-            chartLoading?.style.display = 'none';
-            chartCanvas.style.opacity = '1';
+    
+            // Hide loading for chart (with check)
+            if (chartLoading) { // <-- ADD CHECK
+                chartLoading.style.display = 'none';
+            }
+            if (chartCanvas) { // Also good to check chartCanvas
+                chartCanvas.style.opacity = '1';
+            }
         }
     }
 
