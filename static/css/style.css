@@ -1,0 +1,60 @@
+/* static/css/style.css */
+
+/* Use a slightly more modern system font stack */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* background-color: #1a1a1a; /* Optional: Slightly different dark background */
+  }
+  
+  /* Navbar adjustments (optional) 
+  .navbar {
+     Add any custom navbar styles here 
+     Example: border-bottom: 1px solid #333; 
+  }*/
+  
+  /* Card styling enhancements */
+  .card {
+    /* Add subtle shadow even in dark mode for depth */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Slightly lighter border */
+  }
+  
+  .card-header {
+      background-color: rgba(255, 255, 255, 0.05); /* Slightly lighter header */
+      font-weight: 500;
+  }
+  
+  /* Style for the prediction values */
+  .prediction-value {
+    font-weight: bold;
+    font-size: 1.75rem; /* Make prediction numbers stand out */
+    color: #0d6efd; /* Bootstrap primary blue, or choose another highlight color */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition when updating */
+  }
+  
+  /* Chart container */
+  .chart-container {
+    min-height: 300px; /* Ensure chart has some minimum height */
+  }
+  
+  /* Style the loading indicators */
+  .loading #prediction-card-eod .prediction-value,
+  .loading #prediction-card-next-open .prediction-value {
+      opacity: 0; /* Hide value smoothly when loading */
+  }
+  
+  .loading #prediction-card-eod .loading-spinner,
+  .loading #prediction-card-next-open .loading-spinner {
+      display: inline-block !important; /* Ensure spinner shows */
+  }
+  
+  /* Disclaimer text style */
+  .disclaimer p {
+    color: #adb5bd; /* Lighter gray for disclaimer text */
+    margin-bottom: 0;
+  }
+  
+  /* Style dropdown items */
+  .dropdown-item {
+      cursor: pointer;
+  }
