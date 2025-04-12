@@ -184,7 +184,7 @@ for coin in COINS_TO_TRAIN:
     print("Training model...")
     # Define callbacks
     # Stop training early if validation loss doesn't improve for 'patience' epochs
-    early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
+    early_stopping = EarlyStopping(monitor='val_loss', patience=50, restore_best_weights=True)
     # Save the best model during training based on validation loss
     model_checkpoint_path = os.path.join(MODEL_SAVE_DIR, f"{coin}_best_model.h5")
     model_checkpoint = ModelCheckpoint(model_checkpoint_path, monitor='val_loss', save_best_only=True)
@@ -192,7 +192,7 @@ for coin in COINS_TO_TRAIN:
     # Fit the model
     history = model.fit(
         X_train, y_train,
-        epochs=50, # Adjust number of epochs as needed
+        epochs=200, # Adjust number of epochs as needed
         batch_size=32, # Adjust batch size as needed
         validation_data=(X_val, y_val),
         callbacks=[early_stopping, model_checkpoint],
